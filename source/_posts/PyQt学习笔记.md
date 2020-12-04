@@ -775,4 +775,615 @@ if __name__ == '__main__':
 
 1. 创建ui
 
+   ![](http://mediaqn.meitranslation.com/blog/image-20201203173121144.png)
+
+2. ui转换py
+
+   ```python
+   # -*- coding: utf-8 -*-
    
+   # Form implementation generated from reading ui file 'DateForm.ui'
+   #
+   # Created by: PyQt5 UI code generator 5.10.1
+   #
+   # WARNING! All changes made in this file will be lost!
+   
+   from PyQt5 import QtCore, QtGui, QtWidgets
+   
+   class Ui_Form(object):
+       def setupUi(self, Form):
+           Form.setObjectName("Form")
+           Form.resize(800, 410)
+           self.horizontalLayout = QtWidgets.QHBoxLayout(Form)
+           self.horizontalLayout.setObjectName("horizontalLayout")
+           self.groupBox = QtWidgets.QGroupBox(Form)
+           self.groupBox.setObjectName("groupBox")
+           self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.groupBox)
+           self.verticalLayout_2.setObjectName("verticalLayout_2")
+           self.btnGetTime = QtWidgets.QPushButton(self.groupBox)
+           self.btnGetTime.setObjectName("btnGetTime")
+           self.verticalLayout_2.addWidget(self.btnGetTime)
+           self.splitter = QtWidgets.QSplitter(self.groupBox)
+           self.splitter.setOrientation(QtCore.Qt.Horizontal)
+           self.splitter.setObjectName("splitter")
+           self.label_2 = QtWidgets.QLabel(self.splitter)
+           self.label_2.setObjectName("label_2")
+           self.timeEdit = QtWidgets.QTimeEdit(self.splitter)
+           self.timeEdit.setObjectName("timeEdit")
+           self.editTime = QtWidgets.QLineEdit(self.splitter)
+           self.editTime.setObjectName("editTime")
+           self.verticalLayout_2.addWidget(self.splitter)
+           self.btnSetTime = QtWidgets.QPushButton(self.groupBox)
+           self.btnSetTime.setObjectName("btnSetTime")
+           self.verticalLayout_2.addWidget(self.btnSetTime)
+           self.splitter_2 = QtWidgets.QSplitter(self.groupBox)
+           self.splitter_2.setOrientation(QtCore.Qt.Horizontal)
+           self.splitter_2.setObjectName("splitter_2")
+           self.label_3 = QtWidgets.QLabel(self.splitter_2)
+           self.label_3.setObjectName("label_3")
+           self.dateEdit = QtWidgets.QDateEdit(self.splitter_2)
+           self.dateEdit.setObjectName("dateEdit")
+           self.editDate = QtWidgets.QLineEdit(self.splitter_2)
+           self.editDate.setObjectName("editDate")
+           self.verticalLayout_2.addWidget(self.splitter_2)
+           self.btnSetDate = QtWidgets.QPushButton(self.groupBox)
+           self.btnSetDate.setObjectName("btnSetDate")
+           self.verticalLayout_2.addWidget(self.btnSetDate)
+           self.splitter_3 = QtWidgets.QSplitter(self.groupBox)
+           self.splitter_3.setOrientation(QtCore.Qt.Horizontal)
+           self.splitter_3.setObjectName("splitter_3")
+           self.label_4 = QtWidgets.QLabel(self.splitter_3)
+           self.label_4.setObjectName("label_4")
+           self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.splitter_3)
+           self.dateTimeEdit.setObjectName("dateTimeEdit")
+           self.editDateTime = QtWidgets.QLineEdit(self.splitter_3)
+           self.editDateTime.setObjectName("editDateTime")
+           self.verticalLayout_2.addWidget(self.splitter_3)
+           self.btnSetDateTime = QtWidgets.QPushButton(self.groupBox)
+           self.btnSetDateTime.setObjectName("btnSetDateTime")
+           self.verticalLayout_2.addWidget(self.btnSetDateTime)
+           self.horizontalLayout.addWidget(self.groupBox)
+           self.groupBox_2 = QtWidgets.QGroupBox(Form)
+           self.groupBox_2.setObjectName("groupBox_2")
+           self.verticalLayout = QtWidgets.QVBoxLayout(self.groupBox_2)
+           self.verticalLayout.setObjectName("verticalLayout")
+           self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+           self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+           self.label = QtWidgets.QLabel(self.groupBox_2)
+           self.label.setObjectName("label")
+           self.horizontalLayout_2.addWidget(self.label)
+           self.editCalendar = QtWidgets.QLineEdit(self.groupBox_2)
+           self.editCalendar.setInputMask("")
+           self.editCalendar.setObjectName("editCalendar")
+           self.horizontalLayout_2.addWidget(self.editCalendar)
+           self.verticalLayout.addLayout(self.horizontalLayout_2)
+           self.calendarWidget = QtWidgets.QCalendarWidget(self.groupBox_2)
+           self.calendarWidget.setObjectName("calendarWidget")
+           self.verticalLayout.addWidget(self.calendarWidget)
+           self.horizontalLayout.addWidget(self.groupBox_2)
+   
+           self.retranslateUi(Form)
+           QtCore.QMetaObject.connectSlotsByName(Form)
+   
+       def retranslateUi(self, Form):
+           _translate = QtCore.QCoreApplication.translate
+           Form.setWindowTitle(_translate("Form", "Form"))
+           self.groupBox.setTitle(_translate("Form", "日期时间"))
+           self.btnGetTime.setText(_translate("Form", "读取当前日期时间"))
+           self.label_2.setText(_translate("Form", "时间"))
+           self.timeEdit.setDisplayFormat(_translate("Form", "H:mm:ss"))
+           self.editTime.setInputMask(_translate("Form", "99:99:99"))
+           self.btnSetTime.setText(_translate("Form", "设置时间"))
+           self.label_3.setText(_translate("Form", "日期"))
+           self.dateEdit.setDisplayFormat(_translate("Form", "yyyy年M月d日"))
+           self.editDate.setInputMask(_translate("Form", "9999-99-99"))
+           self.btnSetDate.setText(_translate("Form", "设置日期"))
+           self.label_4.setText(_translate("Form", "日期时间"))
+           self.dateTimeEdit.setDisplayFormat(_translate("Form", "yyyy-M-d H:mm:ss"))
+           self.editDateTime.setInputMask(_translate("Form", "9999-99-99 99:99:99"))
+           self.btnSetDateTime.setText(_translate("Form", "设置日期时间"))
+           self.groupBox_2.setTitle(_translate("Form", "日历选择"))
+           self.label.setText(_translate("Form", "选择的日期："))
+   
+   ```
+
+3. 业务逻辑类
+
+   ```python
+   import sys
+   
+   from PyQt5.QtCore import QDateTime, QTime, QDate
+   from PyQt5.QtWidgets import QWidget, QApplication
+   
+   import DateForm
+   
+   class QMyWidget(QWidget):
+       def __init__(self,parent=None):
+           super().__init__(parent)
+           self.ui = DateForm.Ui_Form()
+           self.ui.setupUi(self)
+   
+       # # ============由connectSlotByName() 自动关联的槽函数 ======================
+       def on_btnGetTime_clicked(self):
+           curDateTime = QDateTime.currentDateTime()
+           self.ui.timeEdit.setTime(curDateTime.time())
+           self.ui.editTime.setText(curDateTime.toString("hh:mm:ss"))
+           self.ui.dateEdit.setDate(curDateTime.date())
+           self.ui.editDate.setText(curDateTime.toString("yyyy-MM-dd"))
+           self.ui.dateTimeEdit.setDateTime(curDateTime)
+           self.ui.editDateTime.setText(curDateTime.toString("yyyy-MM-dd hh:mm:ss"))
+   
+       def on_calendarWidget_selectionChanged(self):
+           date = self.ui.calendarWidget.selectedDate()
+           self.ui.editCalendar.setText(date.toString("yyyy年M月d日"))
+   
+       def on_btnSetTime_clicked(self):  # 设置时间按钮
+           tmStr = self.ui.editTime.text()
+           tm = QTime.fromString(tmStr, "hh:mm:ss")
+           self.ui.timeEdit.setTime(tm)
+   
+       def on_btnSetDate_clicked(self):  # 设置日期按钮
+           dtStr = self.ui.editDate.text()
+           dt = QDate.fromString(dtStr, "yyyy-MM-dd")
+           self.ui.dateEdit.setDate(dt)
+   
+       def on_btnSetDateTime_clicked(self):
+           dttmStr = self.ui.editDateTime.text()
+           dttm = QDateTime.fromString(dttmStr, "yyyy-MM-dd hh:mm:ss")
+           self.ui.dateTimeEdit.setDateTime(dttm)
+   
+   if __name__ == "__main__":
+       app = QApplication(sys.argv)  # 创建app，用QApplication类
+       form = QMyWidget()
+       form.show()
+       sys.exit(app.exec_())
+   ```
+
+4. 类解析
+
+   1. QTime：时间数据类型，仅表示时间。displayFormat设置为H:mm:ss。如15:21:13
+   2. QDate：日期数据类型，仅表示日期。如2018-5-6
+   3. QDateTime：日期时间数据类型，表示日期和时间，如2018-05-23 09:12:43
+
+5. 组件
+
+   1. QTimeEdit：编辑和显示时间的组件
+
+   2. QDateEdit：编辑和显示日期的组件。若calendarPopup属性设置为True，运行时右侧按钮变成下拉按钮，单击按钮时出现一个日历选择框，用于在日历上选择日期。
+
+   3. QDateTimeEdit：编辑和显示日期时间的组件，也有calendarPopup属性。
+
+   4. QCalendarWidget：一个用日历形式选择日期的组件，在日历上点击日期发生变化时发射信号selectionChanged()，可响应此信号读取选择的日期。
+
+   5. 为了限定QLineEdit的输入符合某些格式，可以设置其inputMask属性
+
+      | 组件         | input Mask          | 意义                              |
+      | ------------ | ------------------- | --------------------------------- |
+      | editTime     | 99:99:99            | 只能输入0到9的数字，空格用“_”显示 |
+      | editDate     | 9999-99-99          | 只能输入0到9的数字                |
+      | editDateTime | 9999-99-99 99:99:99 | 只能输入0到9的数字                |
+
+      
+
+
+## 9. 定时器和计时器
+
+1. 创建ui
+
+   ![image-20201204114703071](http://mediaqn.meitranslation.com/blog/image-20201204114703071.png)
+
+2. 把ui文件转换成py文件
+
+   ```python
+   # -*- coding: utf-8 -*-
+   
+   # Form implementation generated from reading ui file 'Timer.ui'
+   #
+   # Created by: PyQt5 UI code generator 5.10.1
+   #
+   # WARNING! All changes made in this file will be lost!
+   
+   from PyQt5 import QtCore, QtGui, QtWidgets
+   
+   class Ui_Form(object):
+       def setupUi(self, Form):
+           Form.setObjectName("Form")
+           Form.resize(400, 300)
+           self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+           self.verticalLayout.setObjectName("verticalLayout")
+           self.groupBox = QtWidgets.QGroupBox(Form)
+           self.groupBox.setObjectName("groupBox")
+           self.gridLayout = QtWidgets.QGridLayout(self.groupBox)
+           self.gridLayout.setObjectName("gridLayout")
+           self.btnStart = QtWidgets.QPushButton(self.groupBox)
+           self.btnStart.setObjectName("btnStart")
+           self.gridLayout.addWidget(self.btnStart, 0, 0, 1, 1)
+           self.btnStop = QtWidgets.QPushButton(self.groupBox)
+           self.btnStop.setObjectName("btnStop")
+           self.gridLayout.addWidget(self.btnStop, 0, 1, 1, 1)
+           self.btnSetIntv = QtWidgets.QPushButton(self.groupBox)
+           self.btnSetIntv.setObjectName("btnSetIntv")
+           self.gridLayout.addWidget(self.btnSetIntv, 1, 0, 1, 1)
+           self.spinBoxIntv = QtWidgets.QSpinBox(self.groupBox)
+           self.spinBoxIntv.setMinimum(1000)
+           self.spinBoxIntv.setMaximum(10000)
+           self.spinBoxIntv.setSingleStep(1000)
+           self.spinBoxIntv.setProperty("value", 1000)
+           self.spinBoxIntv.setObjectName("spinBoxIntv")
+           self.gridLayout.addWidget(self.spinBoxIntv, 1, 1, 1, 1)
+           self.verticalLayout.addWidget(self.groupBox)
+           self.groupBox_2 = QtWidgets.QGroupBox(Form)
+           self.groupBox_2.setObjectName("groupBox_2")
+           self.horizontalLayout = QtWidgets.QHBoxLayout(self.groupBox_2)
+           self.horizontalLayout.setObjectName("horizontalLayout")
+           self.LCDHour = QtWidgets.QLCDNumber(self.groupBox_2)
+           font = QtGui.QFont()
+           font.setPointSize(20)
+           self.LCDHour.setFont(font)
+           self.LCDHour.setDigitCount(2)
+           self.LCDHour.setObjectName("LCDHour")
+           self.horizontalLayout.addWidget(self.LCDHour)
+           self.LCDMin = QtWidgets.QLCDNumber(self.groupBox_2)
+           self.LCDMin.setDigitCount(2)
+           self.LCDMin.setObjectName("LCDMin")
+           self.horizontalLayout.addWidget(self.LCDMin)
+           self.LCDSec = QtWidgets.QLCDNumber(self.groupBox_2)
+           self.LCDSec.setSmallDecimalPoint(False)
+           self.LCDSec.setDigitCount(2)
+           self.LCDSec.setObjectName("LCDSec")
+           self.horizontalLayout.addWidget(self.LCDSec)
+           self.verticalLayout.addWidget(self.groupBox_2)
+           self.LabElapsedTime = QtWidgets.QLabel(Form)
+           sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+           sizePolicy.setHorizontalStretch(0)
+           sizePolicy.setVerticalStretch(0)
+           sizePolicy.setHeightForWidth(self.LabElapsedTime.sizePolicy().hasHeightForWidth())
+           self.LabElapsedTime.setSizePolicy(sizePolicy)
+           self.LabElapsedTime.setText("")
+           self.LabElapsedTime.setObjectName("LabElapsedTime")
+           self.verticalLayout.addWidget(self.LabElapsedTime)
+   
+           self.retranslateUi(Form)
+           QtCore.QMetaObject.connectSlotsByName(Form)
+   
+       def retranslateUi(self, Form):
+           _translate = QtCore.QCoreApplication.translate
+           Form.setWindowTitle(_translate("Form", "Form"))
+           self.groupBox.setTitle(_translate("Form", "定时器"))
+           self.btnStart.setText(_translate("Form", "开始"))
+           self.btnStop.setText(_translate("Form", "停止"))
+           self.btnSetIntv.setText(_translate("Form", "设置周期"))
+           self.spinBoxIntv.setSuffix(_translate("Form", "ms"))
+           self.groupBox_2.setTitle(_translate("Form", "当前时间"))
+   
+   ```
+
+3. 创建逻辑类
+
+   ```python
+   import sys
+   from PyQt5.QtWidgets import QApplication, QWidget
+   from PyQt5.QtCore import QTime, QTimer
+   
+   import Timer
+   
+   
+   class QMyWidget(QWidget):
+       def __init__(self, parent=None):
+           super().__init__(parent)
+           self.ui = Timer.Ui_Form()
+           self.ui.setupUi(self)
+   
+           self.timer = QTimer()  # 创建定时器
+           self.timer.stop()  # 停止
+           self.timer.setInterval(1000)  # 定时周期1000ms
+           self.timer.timeout.connect(self.do_timer_timeout)
+           self.counter = QTime()  # 创建计时器
+   
+       def on_btnStart_clicked(self):
+           self.timer.start()  # 开始定时
+           self.counter.start()
+           self.ui.btnStart.setEnabled(False)
+           self.ui.btnStop.setEnabled(True)
+           self.ui.btnSetIntv.setEnabled(False)
+   
+       def on_btnSetIntv_clicked(self):  # #设置定时器的周期
+           self.timer.setInterval(self.ui.spinBoxIntv.value())
+   
+       def on_btnStop_clicked(self):
+           self.timer.stop()  # 定时器停止
+           tmMs = self.counter.elapsed()  # 计时器经过的毫秒数, 这个时候counter其实还在运行,重新start之后从0开始计时
+           ms = tmMs % 1000  # 取余数，毫秒
+           sec = tmMs/1000  # 整秒
+           timeStr = "经过的时间：%d 秒，%d 毫秒" % (sec, ms)
+           self.ui.LabElapsedTime.setText(timeStr)
+           self.ui.btnStart.setEnabled(True)
+           self.ui.btnStop.setEnabled(False)
+           self.ui.btnSetIntv.setEnabled(True)
+   
+       def do_timer_timeout(self):  # 定时中断响应
+           curTime = QTime.currentTime()  # 获取当前时间
+           self.ui.LCDHour.display(curTime.hour())
+           self.ui.LCDMin.display(curTime.minute())
+           self.ui.LCDSec.display(curTime.second())
+   
+   
+   if __name__ == "__main__":
+       app = QApplication(sys.argv)  # 创建app，用QApplication类
+       form = QMyWidget()
+       form.show()
+       sys.exit(app.exec_())
+   ```
+
+4. PyQt5中的定时器类是QTimer。QTimer不是一个可见的界面组件，在Qt Designer的组件面板里找不到它。
+
+   - QTimer主要的属性是interval，是定时中断的周期，单位是毫秒。
+   - QTimer主要的信号是timeout()，在定时中断时发射此信号，若要在定时中断里作出响应，就需要编写与timeout()信号关联的槽函数。
+
+5. 代码分析
+
+   1. 在构造函数中创建了定时器对象self.timer并立刻停止。设置定时周期为1000ms，并为其timeout()信号关联了自定义槽函数do_timer_timeout()。还创建了一个计时器对象self.counter，这是一个QTime类的实例，用于在开始与停止之间计算经过的时间。
+   2. 定时器开始运行,点击“开始”按钮后，定时器开始运行，计时器也开始运行。定时器的定时周期到了之后发射timeout()信号，触发关联的自定义槽函数do_timer_timeout()执行，此槽函数的功能通过类函数QTime.currentTime()读取当前时间，然后将时、分、秒显示在三个LCD组件上。
+   3. 定时器停止运行,点击“停止”按钮时，定时器停止运行。计时器通过调用elapsed()函数可以获得上次执行start()之后经过的毫秒数。
+
+
+
+## 10. 下拉列表框
+
+1. 创建ui
+
+   ![image-20201204183434189](http://mediaqn.meitranslation.com/blog/image-20201204183434189.png )
+
+2. ui转换py文件
+
+   ```python
+   # -*- coding: utf-8 -*-
+   
+   # Form implementation generated from reading ui file 'QComboBox.ui'
+   #
+   # Created by: PyQt5 UI code generator 5.10.1
+   #
+   # WARNING! All changes made in this file will be lost!
+   
+   from PyQt5 import QtCore, QtGui, QtWidgets
+   
+   class Ui_Form(object):
+       def setupUi(self, Form):
+           Form.setObjectName("Form")
+           Form.resize(564, 334)
+           self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+           self.verticalLayout.setObjectName("verticalLayout")
+           self.groupBox = QtWidgets.QGroupBox(Form)
+           self.groupBox.setObjectName("groupBox")
+           self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.groupBox)
+           self.verticalLayout_2.setObjectName("verticalLayout_2")
+           self.lineEdit = QtWidgets.QLineEdit(self.groupBox)
+           self.lineEdit.setObjectName("lineEdit")
+           self.verticalLayout_2.addWidget(self.lineEdit)
+           self.verticalLayout.addWidget(self.groupBox)
+           self.frame = QtWidgets.QFrame(Form)
+           self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+           self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+           self.frame.setObjectName("frame")
+           self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame)
+           self.horizontalLayout.setObjectName("horizontalLayout")
+           self.groupBox_2 = QtWidgets.QGroupBox(self.frame)
+           self.groupBox_2.setObjectName("groupBox_2")
+           self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.groupBox_2)
+           self.verticalLayout_3.setObjectName("verticalLayout_3")
+           self.splitter = QtWidgets.QSplitter(self.groupBox_2)
+           self.splitter.setOrientation(QtCore.Qt.Horizontal)
+           self.splitter.setObjectName("splitter")
+           self.btnIniItems = QtWidgets.QPushButton(self.splitter)
+           self.btnIniItems.setObjectName("btnIniItems")
+           self.pushButton_2 = QtWidgets.QPushButton(self.splitter)
+           self.pushButton_2.setObjectName("pushButton_2")
+           self.chkBoxEditable = QtWidgets.QCheckBox(self.splitter)
+           self.chkBoxEditable.setObjectName("chkBoxEditable")
+           self.verticalLayout_3.addWidget(self.splitter)
+           self.comboBox = QtWidgets.QComboBox(self.groupBox_2)
+           self.comboBox.setObjectName("comboBox")
+           self.verticalLayout_3.addWidget(self.comboBox)
+           self.horizontalLayout.addWidget(self.groupBox_2)
+           self.groupBox_3 = QtWidgets.QGroupBox(self.frame)
+           self.groupBox_3.setObjectName("groupBox_3")
+           self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.groupBox_3)
+           self.verticalLayout_4.setObjectName("verticalLayout_4")
+           self.btnIni2 = QtWidgets.QPushButton(self.groupBox_3)
+           self.btnIni2.setObjectName("btnIni2")
+           self.verticalLayout_4.addWidget(self.btnIni2)
+           self.comboBox_2 = QtWidgets.QComboBox(self.groupBox_3)
+           self.comboBox_2.setObjectName("comboBox_2")
+           self.verticalLayout_4.addWidget(self.comboBox_2)
+           self.horizontalLayout.addWidget(self.groupBox_3)
+           self.verticalLayout.addWidget(self.frame)
+   
+           self.retranslateUi(Form)
+           QtCore.QMetaObject.connectSlotsByName(Form)
+   
+       def retranslateUi(self, Form):
+           _translate = QtCore.QCoreApplication.translate
+           Form.setWindowTitle(_translate("Form", "Form"))
+           self.groupBox.setTitle(_translate("Form", "选择的内容"))
+           self.groupBox_2.setTitle(_translate("Form", "简单的ComboBox"))
+           self.btnIniItems.setText(_translate("Form", "初始化列表"))
+           self.pushButton_2.setText(_translate("Form", "清除列表"))
+           self.chkBoxEditable.setText(_translate("Form", "可编辑"))
+           self.groupBox_3.setTitle(_translate("Form", "有用户数据的ComboBox"))
+           self.btnIni2.setText(_translate("Form", "初始化城市+区号"))
+   
+   
+   ```
+
+3. 创建逻辑类
+
+   ```python
+   import sys
+   from PyQt5.QtCore import pyqtSlot
+   from PyQt5.QtGui import QIcon
+   from PyQt5.QtWidgets import QWidget, QApplication
+   
+   import QComboBox
+   
+   class QMyWidget(QWidget):
+       def __init__(self,parent=None):
+           super().__init__(parent)
+           self.ui = QComboBox.Ui_Form()
+           self.ui.setupUi(self)
+   
+           self.ui.btnIni2.clicked.connect(self.on_btn_ini2_clicked)
+   
+           self.ui.comboBox_2.currentIndexChanged[str].connect(self.combo_box_current_index_change)
+   
+       def on_btnIniItems_clicked(self):
+           icon = QIcon("./icons/images/icon.png")
+           self.ui.comboBox.clear()
+           provinces = ["山东", "河北", "河南", "湖北", "湖南", "广东"]  # 列表数据
+           # self.ui.comboBox.addItems(provinces)  # 直接添加列表，但无法加图标
+           for i in range(len(provinces)):
+               self.ui.comboBox.addItem(icon, provinces[i])
+   
+       @pyqtSlot(bool)
+       def on_chkBoxEditable_clicked(self,checked):
+           self.ui.comboBox.setEditable(checked)
+   
+       @pyqtSlot(str)
+       def on_comboBox_currentIndexChanged(self,curText):
+           self.ui.lineEdit.setText(curText)
+   
+       def on_btn_ini2_clicked(self):
+           icon = QIcon("./icons/images/icon.png")
+           self.ui.comboBox_2.clear()
+           cities =  {"北京": 10, "上海": 21, "天津": 22, "徐州": 516, "福州": 591, "青岛": 532}  # 字典数据
+           for k in cities:
+               self.ui.comboBox_2.addItem(icon,k,cities[k])
+   
+   
+       def combo_box_current_index_change(self,curText):
+           self.ui.lineEdit.setText(curText)
+           zone = self.ui.comboBox_2.currentData()
+           if zone is not None:
+               self.ui.lineEdit.setText(curText + ":区号=%d" % zone)
+   
+   
+   if __name__ == '__main__':
+       app = QApplication(sys.argv)
+       form = QMyWidget()
+       form.show()
+       sys.exit(app.exec_())
+      
+   ```
+
+### QComboBox常用函数总结
+
+QComboBox存储的项是一个列表，但是QComboBox不提供整个列表用于访问，而可以通过索引访问某个项。访问项的一些函数主要有以下几个。
+
+1. currentIndex()：返回当前项的序号，第一项的序号为0。
+2. currentText()：返回当前项的文字。
+3. currentData(role)：返回当前项的关联数据，参数role表示数据角色，角色role的默认值为Qt.UserRole。可以为一个项定义多个角色的用户数据，更多自定义角色的编号从Qt.UserRole开始增加，如Qt.UserRole+1、Qt.UserRole+2.
+4. itemText(index)：返回索引号为index的项的文字。
+5. itemData(index, role)：返回索引号为index的项的角色为role的关联数据，角色role的默认值为Qt.UserRole。
+6. count()：返回项的个数。
+
+
+
+## 11. WebView使用
+
+1. 创建ui
+
+   ![image-20201204192413199](../../../../.config/Typora/typora-user-images/image-20201204192413199.png)
+
+2. 转换ui文件到py
+
+   ```python
+   # -*- coding: utf-8 -*-
+   
+   # Form implementation generated from reading ui file 'WebBrowser.ui'
+   #
+   # Created by: PyQt5 UI code generator 5.10.1
+   #
+   # WARNING! All changes made in this file will be lost!
+   
+   from PyQt5 import QtCore, QtGui, QtWidgets
+   
+   class Ui_MainWindow(object):
+       def setupUi(self, MainWindow):
+           MainWindow.setObjectName("MainWindow")
+           MainWindow.resize(800, 600)
+           self.centralwidget = QtWidgets.QWidget(MainWindow)
+           self.centralwidget.setObjectName("centralwidget")
+           self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+           self.verticalLayout.setObjectName("verticalLayout")
+           self.webView = QWebEngineView(self.centralwidget) ## update to QWebEngineView
+           self.webView.setUrl(QtCore.QUrl("https://www.baidu.com/"))
+           self.webView.setObjectName("webView")
+           self.verticalLayout.addWidget(self.webView)
+           MainWindow.setCentralWidget(self.centralwidget)
+           self.menubar = QtWidgets.QMenuBar(MainWindow)
+           self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 30))
+           self.menubar.setObjectName("menubar")
+           MainWindow.setMenuBar(self.menubar)
+           self.statusbar = QtWidgets.QStatusBar(MainWindow)
+           self.statusbar.setObjectName("statusbar")
+           MainWindow.setStatusBar(self.statusbar)
+   
+           self.retranslateUi(MainWindow)
+           QtCore.QMetaObject.connectSlotsByName(MainWindow)
+   
+       def retranslateUi(self, MainWindow):
+           _translate = QtCore.QCoreApplication.translate
+           MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+   
+   from PyQt5.QtWebEngineWidgets import QWebEngineView ## update to QWebEngineView
+   
+   ```
+
+   当前使用的版本是5.15 默认不包含webEngine模块需要单独安装 `pip install PyQtWebEngine`
+
+   安装之后我的pip list 
+
+   ```bash
+   Package          Version
+   ---------------- ------------
+   click            7.1.2
+   pip              20.2.2
+   PyQt5            5.15.1
+   pyqt5-plugins    5.15.1.2.0.1
+   PyQt5-sip        12.8.1
+   pyqt5-tools      5.15.1.3
+   PyQtWebEngine    5.15.2
+   python-dotenv    0.15.0
+   qt5-applications 5.15.1.2
+   qt5-tools        5.15.1.1.0.1
+   setuptools       50.2.0
+   wheel            0.35.1
+   ```
+
+3. 创建业务逻辑类
+
+   ```python
+   import sys
+   from PyQt5 import QtCore
+   
+   from PyQt5.QtWidgets import QWidget, QApplication, QMainWindow
+   
+   import WebBrowser
+   
+   class QMyWidget(QMainWindow):
+       def __init__(self,parent=None):
+           super().__init__(parent)
+           self.ui = WebBrowser.Ui_MainWindow()
+           self.ui.setupUi(self)
+   
+   
+   if __name__ == '__main__':
+       app = QApplication(sys.argv)
+       win = QMyWidget()
+       win.ui.webView.load(QtCore.QUrl("http://jinyun.github.io"))
+       win.show()
+   
+       sys.exit(app.exec_())
+   ```
+
+   
+
