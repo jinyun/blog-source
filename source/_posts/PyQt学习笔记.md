@@ -537,6 +537,25 @@ if __name__ == '__main__':
 
    在程序中可以使用disconnect()函数断开信号与槽的关联，例如：boy.ageChanged[str].disconnect(resp.do_ageChanged_str)
 
+
+
+## 12. 尺寸策略
+
+在使用了Qt提供的四种布局之后, 如果要对其中的一些组件进行调整, 可以使用QWidget类中的sizePolicy这个属性,配合minimumSize和maxinumSize 和实现目前大部分的布局样式.
+
+| Policy    | 功能                                                         |
+| --------- | ------------------------------------------------------------ |
+| Fixed     | 指定宽高                                                     |
+| minimum   | 最小值                                                       |
+| maximum   | 最大值                                                       |
+| Expanding | 扩展,配合水平延伸(Horizontal Stretch)和垂直延伸(Vertical Stretch),可以实现按照比例进行分割 |
+
+## 13. 设置伙伴关系和Tab顺序
+
+在工具栏上可以切换到对应的模式,编辑伙伴关系和tab 顺序
+
+
+
 ## 7. 常用界面组件的使用(QSlider和QProgressBar)
 
 1. 创建ui
@@ -1384,6 +1403,453 @@ QComboBox存储的项是一个列表，但是QComboBox不提供整个列表用�
    
        sys.exit(app.exec_())
    ```
+
+## 12. QMainWindow与QAction
+
+1. 创建ui
+
+   ![](http://mediaqn.meitranslation.com/blog/20201207171509.png)
+
+   
+
+   创建菜单
+
+   ![](http://mediaqn.meitranslation.com/blog/20201207172216.png)
+
+   双击菜单栏,添加 `文件(&F)`,`编辑(&E)`,`格式(&M)`,`关于(&A)`.
+
+   在Action Editor中创建如图的菜单
+
+   ![](http://mediaqn.meitranslation.com/blog/20201207172632.png)
+
+   在面板上右键添加工具栏,然后把创建的Action拖入到对应的Action
+
+   ![image-20201207173318799](http://mediaqn.meitranslation.com/blog/20201207173325.png )
+
+   添加plainTextEdit到主要窗口面板,把centralwidget 配置成`Vertical Layout 垂直布局`.最后的对象树
+
+   ![image-20201207173909009](http://mediaqn.meitranslation.com/blog/20201207173911.png )
+
+   ![image-20201207173955899](http://mediaqn.meitranslation.com/blog/20201207174050.png )
+
+   创建对应的Signal/Slot
+
+   ![image-20201207181823558](http://mediaqn.meitranslation.com/blog/20201207181824.png )
+
+   保存ui文件ui_MainWindow.ui
+
+   
+
+2. 把创建的ui文件编译成py文件
+
+   ```python
+   # -*- coding: utf-8 -*-
+   
+   # Form implementation generated from reading ui file 'ui_MainWindow.ui'
+   #
+   # Created by: PyQt5 UI code generator 5.10.1
+   #
+   # WARNING! All changes made in this file will be lost!
+   
+   from PyQt5 import QtCore, QtGui, QtWidgets
+   
+   class Ui_MainWindow(object):
+       def setupUi(self, MainWindow):
+           MainWindow.setObjectName("MainWindow")
+           MainWindow.resize(814, 594)
+           self.centralwidget = QtWidgets.QWidget(MainWindow)
+           self.centralwidget.setObjectName("centralwidget")
+           self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+           self.verticalLayout.setObjectName("verticalLayout")
+           self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
+           self.plainTextEdit.setObjectName("plainTextEdit")
+           self.verticalLayout.addWidget(self.plainTextEdit)
+           MainWindow.setCentralWidget(self.centralwidget)
+           self.menubar = QtWidgets.QMenuBar(MainWindow)
+           self.menubar.setGeometry(QtCore.QRect(0, 0, 814, 32))
+           self.menubar.setObjectName("menubar")
+           self.menu = QtWidgets.QMenu(self.menubar)
+           self.menu.setObjectName("menu")
+           self.menu_E = QtWidgets.QMenu(self.menubar)
+           self.menu_E.setObjectName("menu_E")
+           self.menu_M = QtWidgets.QMenu(self.menubar)
+           self.menu_M.setObjectName("menu_M")
+           self.menu_A = QtWidgets.QMenu(self.menubar)
+           self.menu_A.setObjectName("menu_A")
+           MainWindow.setMenuBar(self.menubar)
+           self.statusBar = QtWidgets.QStatusBar(MainWindow)
+           self.statusBar.setObjectName("statusBar")
+           MainWindow.setStatusBar(self.statusBar)
+           self.toolBar = QtWidgets.QToolBar(MainWindow)
+           self.toolBar.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
+           self.toolBar.setObjectName("toolBar")
+           MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
+           self.actFont_Italic = QtWidgets.QAction(MainWindow)
+           self.actFont_Italic.setCheckable(True)
+           icon = QtGui.QIcon()
+           icon.addPixmap(QtGui.QPixmap("../../../resource/Italic.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actFont_Italic.setIcon(icon)
+           self.actFont_Italic.setObjectName("actFont_Italic")
+           self.actFont_Bold = QtWidgets.QAction(MainWindow)
+           self.actFont_Bold.setCheckable(True)
+           icon1 = QtGui.QIcon()
+           icon1.addPixmap(QtGui.QPixmap("../../../resource/bold.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actFont_Bold.setIcon(icon1)
+           self.actFont_Bold.setObjectName("actFont_Bold")
+           self.actFont_Underline = QtWidgets.QAction(MainWindow)
+           self.actFont_Underline.setCheckable(True)
+           icon2 = QtGui.QIcon()
+           icon2.addPixmap(QtGui.QPixmap("../../../resource/underline.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actFont_Underline.setIcon(icon2)
+           self.actFont_Underline.setObjectName("actFont_Underline")
+           self.actEdit_Cut = QtWidgets.QAction(MainWindow)
+           icon3 = QtGui.QIcon()
+           icon3.addPixmap(QtGui.QPixmap("../../../resource/cut.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_Cut.setIcon(icon3)
+           self.actEdit_Cut.setObjectName("actEdit_Cut")
+           self.actEdit_Copy = QtWidgets.QAction(MainWindow)
+           icon4 = QtGui.QIcon()
+           icon4.addPixmap(QtGui.QPixmap("../../../resource/copy.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_Copy.setIcon(icon4)
+           self.actEdit_Copy.setObjectName("actEdit_Copy")
+           self.actEdit_Paste = QtWidgets.QAction(MainWindow)
+           icon5 = QtGui.QIcon()
+           icon5.addPixmap(QtGui.QPixmap("../../../resource/paste.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_Paste.setIcon(icon5)
+           self.actEdit_Paste.setObjectName("actEdit_Paste")
+           self.actFile_New = QtWidgets.QAction(MainWindow)
+           icon6 = QtGui.QIcon()
+           icon6.addPixmap(QtGui.QPixmap("../../../resource/new.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actFile_New.setIcon(icon6)
+           self.actFile_New.setObjectName("actFile_New")
+           self.actFile_Open = QtWidgets.QAction(MainWindow)
+           icon7 = QtGui.QIcon()
+           icon7.addPixmap(QtGui.QPixmap("../../../resource/open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actFile_Open.setIcon(icon7)
+           self.actFile_Open.setObjectName("actFile_Open")
+           self.actFile_Save = QtWidgets.QAction(MainWindow)
+           icon8 = QtGui.QIcon()
+           icon8.addPixmap(QtGui.QPixmap("../../../resource/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actFile_Save.setIcon(icon8)
+           self.actFile_Save.setObjectName("actFile_Save")
+           self.actClose = QtWidgets.QAction(MainWindow)
+           icon9 = QtGui.QIcon()
+           icon9.addPixmap(QtGui.QPixmap("../../../resource/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actClose.setIcon(icon9)
+           self.actClose.setObjectName("actClose")
+           self.actEdit_Undo = QtWidgets.QAction(MainWindow)
+           icon10 = QtGui.QIcon()
+           icon10.addPixmap(QtGui.QPixmap("../../../resource/undo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_Undo.setIcon(icon10)
+           self.actEdit_Undo.setObjectName("actEdit_Undo")
+           self.actEdit_Redo = QtWidgets.QAction(MainWindow)
+           icon11 = QtGui.QIcon()
+           icon11.addPixmap(QtGui.QPixmap("../../../resource/redo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_Redo.setIcon(icon11)
+           self.actEdit_Redo.setObjectName("actEdit_Redo")
+           self.actEdit_Clear = QtWidgets.QAction(MainWindow)
+           icon12 = QtGui.QIcon()
+           icon12.addPixmap(QtGui.QPixmap("../../../resource/clear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_Clear.setIcon(icon12)
+           self.actEdit_Clear.setObjectName("actEdit_Clear")
+           self.actEdit_SelectAll = QtWidgets.QAction(MainWindow)
+           icon13 = QtGui.QIcon()
+           icon13.addPixmap(QtGui.QPixmap("../../../resource/SelectAll.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actEdit_SelectAll.setIcon(icon13)
+           self.actEdit_SelectAll.setObjectName("actEdit_SelectAll")
+           self.actLang_CN = QtWidgets.QAction(MainWindow)
+           self.actLang_CN.setCheckable(True)
+           icon14 = QtGui.QIcon()
+           icon14.addPixmap(QtGui.QPixmap("../../../resource/CN.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actLang_CN.setIcon(icon14)
+           self.actLang_CN.setObjectName("actLang_CN")
+           self.actLang_EN = QtWidgets.QAction(MainWindow)
+           self.actLang_EN.setCheckable(True)
+           icon15 = QtGui.QIcon()
+           icon15.addPixmap(QtGui.QPixmap("../../../resource/EN.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+           self.actLang_EN.setIcon(icon15)
+           self.actLang_EN.setObjectName("actLang_EN")
+           self.menu.addAction(self.actFile_New)
+           self.menu.addAction(self.actFile_Open)
+           self.menu.addAction(self.actFile_Save)
+           self.menu.addSeparator()
+           self.menu.addAction(self.actClose)
+           self.menu_E.addAction(self.actEdit_Cut)
+           self.menu_E.addAction(self.actEdit_Copy)
+           self.menu_E.addAction(self.actEdit_Paste)
+           self.menu_E.addSeparator()
+           self.menu_E.addAction(self.actEdit_Undo)
+           self.menu_E.addAction(self.actEdit_Redo)
+           self.menu_E.addSeparator()
+           self.menu_E.addAction(self.actEdit_SelectAll)
+           self.menu_E.addAction(self.actEdit_Clear)
+           self.menu_M.addAction(self.actFont_Italic)
+           self.menu_M.addAction(self.actFont_Bold)
+           self.menu_M.addAction(self.actFont_Underline)
+           self.menubar.addAction(self.menu.menuAction())
+           self.menubar.addAction(self.menu_E.menuAction())
+           self.menubar.addAction(self.menu_M.menuAction())
+           self.menubar.addAction(self.menu_A.menuAction())
+           self.toolBar.addAction(self.actFile_New)
+           self.toolBar.addAction(self.actFile_Open)
+           self.toolBar.addAction(self.actFile_Save)
+           self.toolBar.addAction(self.actClose)
+           self.toolBar.addSeparator()
+           self.toolBar.addAction(self.actEdit_Undo)
+           self.toolBar.addAction(self.actEdit_Redo)
+           self.toolBar.addAction(self.actFont_Italic)
+           self.toolBar.addAction(self.actFont_Bold)
+           self.toolBar.addAction(self.actFont_Underline)
+           self.toolBar.addSeparator()
+           self.toolBar.addAction(self.actEdit_Cut)
+           self.toolBar.addAction(self.actEdit_Copy)
+           self.toolBar.addAction(self.actEdit_Paste)
+           self.toolBar.addSeparator()
+           self.toolBar.addAction(self.actLang_CN)
+           self.toolBar.addAction(self.actLang_EN)
+   
+           self.retranslateUi(MainWindow)
+           self.actEdit_Cut.triggered.connect(self.plainTextEdit.cut)
+           self.actEdit_Copy.triggered.connect(self.plainTextEdit.copy)
+           self.actEdit_Paste.triggered.connect(self.plainTextEdit.paste)
+           self.actClose.triggered.connect(MainWindow.close)
+           self.actEdit_Undo.triggered.connect(self.plainTextEdit.undo)
+           self.actEdit_SelectAll.triggered.connect(self.plainTextEdit.selectAll)
+           self.actEdit_Clear.triggered.connect(self.plainTextEdit.clear)
+           self.actEdit_Redo.triggered.connect(self.plainTextEdit.redo)
+           self.plainTextEdit.redoAvailable['bool'].connect(self.actEdit_Redo.setEnabled)
+           self.plainTextEdit.undoAvailable['bool'].connect(self.actEdit_Undo.setEnabled)
+           QtCore.QMetaObject.connectSlotsByName(MainWindow)
+   
+       def retranslateUi(self, MainWindow):
+           _translate = QtCore.QCoreApplication.translate
+           MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+           self.menu.setTitle(_translate("MainWindow", "文件(&F)"))
+           self.menu_E.setTitle(_translate("MainWindow", "编辑(&E)"))
+           self.menu_M.setTitle(_translate("MainWindow", "格式(&M)"))
+           self.menu_A.setTitle(_translate("MainWindow", "关于(&A)"))
+           self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
+           self.actFont_Italic.setText(_translate("MainWindow", "斜体"))
+           self.actFont_Italic.setToolTip(_translate("MainWindow", "斜体"))
+           self.actFont_Bold.setText(_translate("MainWindow", "粗体"))
+           self.actFont_Bold.setToolTip(_translate("MainWindow", "粗体"))
+           self.actFont_Underline.setText(_translate("MainWindow", "下划线"))
+           self.actFont_Underline.setToolTip(_translate("MainWindow", "下划线"))
+           self.actEdit_Cut.setText(_translate("MainWindow", "剪切"))
+           self.actEdit_Cut.setToolTip(_translate("MainWindow", "剪切"))
+           self.actEdit_Cut.setShortcut(_translate("MainWindow", "Ctrl+X"))
+           self.actEdit_Copy.setText(_translate("MainWindow", "复制"))
+           self.actEdit_Copy.setToolTip(_translate("MainWindow", "复制"))
+           self.actEdit_Copy.setShortcut(_translate("MainWindow", "Ctrl+C"))
+           self.actEdit_Paste.setText(_translate("MainWindow", "粘贴"))
+           self.actEdit_Paste.setToolTip(_translate("MainWindow", "粘贴"))
+           self.actEdit_Paste.setShortcut(_translate("MainWindow", "Ctrl+V"))
+           self.actFile_New.setText(_translate("MainWindow", "新建"))
+           self.actFile_New.setToolTip(_translate("MainWindow", "新建"))
+           self.actFile_New.setShortcut(_translate("MainWindow", "Ctrl+N"))
+           self.actFile_Open.setText(_translate("MainWindow", "打开..."))
+           self.actFile_Open.setToolTip(_translate("MainWindow", "打开..."))
+           self.actFile_Open.setShortcut(_translate("MainWindow", "Ctrl+O"))
+           self.actFile_Save.setText(_translate("MainWindow", "保存"))
+           self.actFile_Save.setToolTip(_translate("MainWindow", "保存"))
+           self.actFile_Save.setShortcut(_translate("MainWindow", "Ctrl+S"))
+           self.actClose.setText(_translate("MainWindow", "关闭"))
+           self.actClose.setToolTip(_translate("MainWindow", "关闭"))
+           self.actEdit_Undo.setText(_translate("MainWindow", "撤销"))
+           self.actEdit_Undo.setToolTip(_translate("MainWindow", "撤销"))
+           self.actEdit_Undo.setShortcut(_translate("MainWindow", "Ctrl+Z"))
+           self.actEdit_Redo.setText(_translate("MainWindow", "重做"))
+           self.actEdit_Redo.setToolTip(_translate("MainWindow", "重做"))
+           self.actEdit_Redo.setShortcut(_translate("MainWindow", "Ctrl+Y"))
+           self.actEdit_Clear.setText(_translate("MainWindow", "清空"))
+           self.actEdit_Clear.setToolTip(_translate("MainWindow", "清空"))
+           self.actEdit_SelectAll.setText(_translate("MainWindow", "全选"))
+           self.actEdit_SelectAll.setToolTip(_translate("MainWindow", "全选"))
+           self.actEdit_SelectAll.setShortcut(_translate("MainWindow", "Ctrl+A"))
+           self.actLang_CN.setText(_translate("MainWindow", "汉语"))
+           self.actLang_CN.setToolTip(_translate("MainWindow", "汉语"))
+           self.actLang_EN.setText(_translate("MainWindow", "英语"))
+           self.actLang_EN.setToolTip(_translate("MainWindow", "英语"))
+   
+   ```
+
+   
+
+3. 创建逻辑类
+
+   ```python
+   import sys
+   from PyQt5.QtCore import pyqtSlot
+   from PyQt5.QtGui import QFont
+   from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QProgressBar, QActionGroup, QSpinBox, QFontComboBox
+   
+   import ui_MainWindow
+   
+   class QMyMainWindow(QMainWindow):
+       def __init__(self,parent=None):
+           super().__init__(parent)
+           self.ui = ui_MainWindow.Ui_MainWindow()
+           self.ui.setupUi(self)
+   
+           self.__buildUI()
+   
+           # 设置斜体
+           self.ui.actFont_Italic.triggered.connect(self.do_act_font_italic_triggered)
+           # 设置粗体
+           self.ui.actFont_Bold.triggered.connect(self.do_act_font_bold_triggered)
+           # 设置下划线
+           self.ui.actFont_Underline.triggered.connect(self.do_act_font_underline_triggered)
+   
+   
+           # 新建文件
+           self.ui.actFile_New.triggered.connect(self.do_act_file_new_triggered)
+           # 打开文件
+           self.ui.actFile_Open.triggered.connect(self.do_act_file_open_triggered)
+           # 保存文件
+           self.ui.actFile_Save.triggered.connect(self.do_act_file_save_triggered)
+   
+   
+           # 设置字体大小
+           self.__spinFontSize.valueChanged[int].connect(self.do_fontsize_changed)
+           # 字体选择
+           self.__comboFontName.currentIndexChanged[str].connect(self.do_fontname_changed)
+   
+           # 文本框内容可复制
+           self.ui.plainTextEdit.copyAvailable.connect(self.do_plain_textedit_copyavailable)
+           # 文本选择内容发生改变
+           self.ui.plainTextEdit.selectionChanged.connect(self.do_plain_textedit_selectionchanged)
+           # 标准右键菜单
+           self.ui.plainTextEdit.customContextMenuRequested.connect(self.do_plain_textedit_customctmnreq)
+   
+           self.setCentralWidget(self.ui.plainTextEdit)
+   
+       def __buildUI(self):  # 窗体上动态添加组件
+           # 创建状态栏上的组件
+           self.__LabFile = QLabel(self)  # QLabel组件显示信息
+           self.__LabFile.setMinimumWidth(150)
+           self.__LabFile.setText("文件名：")
+           self.ui.statusBar.addWidget(self.__LabFile)  # 添加到状态栏
+   
+           self.__progressBar1 = QProgressBar(self)
+           self.__progressBar1.setMaximumWidth(200)
+           self.__progressBar1.setMinimum(5)
+           self.__progressBar1.setMaximum(50)
+           sz = self.ui.plainTextEdit.font().pointSize()  # 字体大小
+           self.__progressBar1.setValue(sz)
+           self.ui.statusBar.addWidget(self.__progressBar1)  # 添加到状态栏
+   
+           self.__LabInfo = QLabel(self)  # QLabel组件显示字体名称
+           self.__LabInfo.setText("选择字体名称：")
+           self.ui.statusBar.addPermanentWidget(self.__LabInfo)  # 添加到状态栏
+   
+           # 为actLang_CN和actLang_EN创建QActionGroup，互斥型选择
+           actionGroup = QActionGroup(self)
+           actionGroup.addAction(self.ui.actLang_CN)
+           actionGroup.addAction(self.ui.actLang_EN)
+           actionGroup.setExclusive(True)  # 互斥型分组
+           self.ui.actLang_CN.setChecked(True)
+   
+           # 创建工具我是谁，我在哪儿栏上的组件
+           self.__spinFontSize = QSpinBox(self)  # 字体大小spinBox
+           self.__spinFontSize.setMinimum(5)
+           self.__spinFontSize.setMaximum(50)
+           sz = self.ui.plainTextEdit.font().pointSize()
+           self.__spinFontSize.setValue(sz)
+           self.__spinFontSize.setMinimumWidth(50)
+           self.ui.toolBar.addWidget(self.__spinFontSize)  # 添加到工具栏
+   
+           self.__comboFontName = QFontComboBox(self)  # 字体comboBox
+           self.__comboFontName.setMinimumWidth(100)
+           self.ui.toolBar.addWidget(self.__comboFontName)  # 添加到工具栏
+   
+           self.ui.toolBar.addSeparator()  # 添加一个分隔条
+           self.ui.toolBar.addAction(self.ui.actClose)  # 添加一个关闭按钮
+   
+       @pyqtSlot(bool)
+       def do_act_font_italic_triggered(self,checked):
+           fmt = self.ui.plainTextEdit.currentCharFormat()
+           fmt.setFontItalic(checked)
+           self.ui.plainTextEdit.mergeCurrentCharFormat(fmt)
+   
+       @pyqtSlot(bool)
+       def do_act_font_bold_triggered(self,checked):
+           fmt = self.ui.plainTextEdit.currentCharFormat()
+           if checked:
+               fmt.setFontWeight(QFont.Bold)
+           else:
+               fmt.setFontWeight(QFont.Normal)
+           self.ui.plainTextEdit.mergeCurrentCharFormat(fmt)
+   
+       @pyqtSlot(bool)
+       def do_act_font_underline_triggered(self,checked):
+           fmt = self.ui.plainTextEdit.currentCharFormat()
+           fmt.setFontUnderline(checked)
+           self.ui.plainTextEdit.mergeCurrentCharFormat(fmt)
+   
+       def do_act_file_new_triggered(self):  # 新建文件，不实现具体功能
+           self.__LabFile.setText(" 新建文件")
+   
+       def do_act_file_open_triggered(self):  # 打开文件，不实现具体功能
+           self.__LabFile.setText(" 打开的文件")
+   
+       def do_act_file_save_triggered(self):  # 保存文件，不实现具体功能
+           self.__LabFile.setText(" 文件已保存")
+   
+   
+       @pyqtSlot(int)
+       def do_fontsize_changed(self, fontSize):  # 设置字体大小
+           fmt = self.ui.plainTextEdit.currentCharFormat()
+           fmt.setFontPointSize(fontSize)
+           self.ui.plainTextEdit.mergeCurrentCharFormat(fmt)
+           self.__progressBar1.setValue(fontSize)
+   
+       @pyqtSlot(str)
+       def do_fontname_changed(self, fontName):  # 设置字体
+           fmt = self.ui.plainTextEdit.currentCharFormat()
+           fmt.setFontFamily(fontName)
+           self.ui.plainTextEdit.mergeCurrentCharFormat(fmt)
+           self.__LabInfo.setText("字体名称：%s    " % fontName)
+   
+       # 文本内容可复制
+       def do_plain_textedit_copyavailable(self, avi):
+           self.ui.actEdit_Cut.setEnabled(avi)
+           self.ui.actEdit_Copy.setEnabled(avi)
+           self.ui.actEdit_Paste.setEnabled(self.ui.plainTextEdit.canPaste())
+   
+       # 文本选择内容发生改变时
+       def do_plain_textedit_selectionchanged(self):
+           fmt = self.ui.plainTextEdit.currentCharFormat()
+           self.ui.actFont_Bold.setChecked(fmt.font().bold())
+           self.ui.actFont_Italic.setChecked(fmt.fontItalic())
+           self.ui.actFont_Underline.setChecked(fmt.fontUnderline())
+   
+       # 标准右键菜单
+       def do_plain_textedit_customctmnreq(self, pos):
+           popMenu = self.ui.plainTextEdit.createStandardContextMenu()
+           popMenu.exec(pos)  # 显示快捷菜单
+   
+   
+   if __name__ == '__main__':
+       app = QApplication(sys.argv)
+       form = QMyMainWindow()
+       form.show()
+       sys.exit(app.exec_())
+   
+   ```
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
 
    
 

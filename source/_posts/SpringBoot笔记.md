@@ -137,6 +137,128 @@ https://tech.souyunku.com/?p=13983
 
 
 
+---
+
+https://blog.csdn.net/gnail_oug/category_9274381.html
+
+# Spring Boot教程(三)：配置文件
+
+https://pocket.blog.csdn.net/article/details/80111823
+
+# Spring Boot教程(四)：多环境配置
+
+https://pocket.blog.csdn.net/article/details/80146030
+
+# Spring Boot教程(五)：默认日志logback
+
+https://pocket.blog.csdn.net/article/details/80164970
+
+# Spring Boot教程(六)：Spring Boot集成mybatis
+
+https://pocket.blog.csdn.net/article/details/80172170
+
+# Spring Boot教程(七)：Spring Boot集成druid连接池
+
+https://pocket.blog.csdn.net/article/details/80172239
+
+# Spring Boot教程(八)：Spring Boot集成pagehelper分页插件
+
+https://pocket.blog.csdn.net/article/details/80229542
+
+
+
+# Spring Boot教程(九)：Spring Boot集成Mapper4
+
+https://pocket.blog.csdn.net/article/details/80229566
+
+# Spring Boot教程(十)：Spring Boot集成jsp
+
+https://pocket.blog.csdn.net/article/details/80237871
+
+
+
+# Spring Boot教程(十一)：Spring Boot集成fastjson
+
+https://pocket.blog.csdn.net/article/details/80239767
+
+
+
+# Spring Boot教程(十二)：Spring Boot集成热部署插件devtools
+
+https://pocket.blog.csdn.net/article/details/80252188
+
+# Spring Boot教程(十三)：Spring Boot文件上传
+
+https://pocket.blog.csdn.net/article/details/80324120
+
+# Spring Boot教程(十四)：Spring Boot集成ehcache缓存
+
+https://pocket.blog.csdn.net/article/details/80334645
+
+
+
+# Spring Boot教程(十五)：Spring Boot集成mybatis generator自动生成代码插件
+
+https://pocket.blog.csdn.net/article/details/80404870
+
+
+
+# Spring Boot教程(十六)：Spring Boot集成shiro
+
+https://pocket.blog.csdn.net/article/details/80662553
+
+
+
+
+
+# Spring Boot教程(十七)：Spring Boot导出war包部署到外部Tomcat
+
+https://pocket.blog.csdn.net/article/details/80697098
+
+
+
+# Spring Boot教程(十八)：Spring Boot集成shiro ehcache
+
+https://pocket.blog.csdn.net/article/details/80697140
+
+
+
+# Spring Boot教程(十九)：Spring Boot集成shiro ehcache(使用shiro的缓存管理)
+
+https://pocket.blog.csdn.net/article/details/80705718
+
+
+
+# Spring Boot教程(二十)：Spring Boot使用String Task定时任务
+
+https://pocket.blog.csdn.net/article/details/80816984
+
+
+
+
+
+# Spring Boot教程(二十一)：Spring Boot使用Quartz定时任务
+
+https://pocket.blog.csdn.net/article/details/80825302
+
+# Spring Boot教程(二十二)：Spring Boot集成JWT
+
+https://pocket.blog.csdn.net/article/details/100522109
+
+
+
+
+
+
+
+[ 纯洁的微笑](http://www.ityouknow.com/)
+
+http://www.ityouknow.com/archives.html
+
+
+
+
+
 
 
 https://www.fangzhipeng.com/spring-boot.html
