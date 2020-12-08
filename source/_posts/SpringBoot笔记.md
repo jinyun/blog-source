@@ -156,3 +156,25 @@ http://www.carlzone.cn/page/9/
 # MongoDB整合Spring Boot 的logback
 
 https://lovnx.blog.csdn.net/article/details/76169147
+
+
+
+springboot 学习之路 
+
+https://www.cnblogs.com/huhongy/category/1042276.html?page=2
+
+
+
+
+
+springboot httpclient resttemplate
+
+https://my.oschina.net/xma444/blog/3137802
+
+https://msd.misuland.com/pd/3691884962006440062
+
+https://www.cnblogs.com/coderjinjian/p/9644923.html
+
+https://blog.csdn.net/Little_fxc/article/details/103583650
+
+https://blog.csdn.net/Little_fxc/article/details/103583650
