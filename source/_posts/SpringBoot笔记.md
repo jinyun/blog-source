@@ -300,3 +300,111 @@ https://www.cnblogs.com/coderjinjian/p/9644923.html
 https://blog.csdn.net/Little_fxc/article/details/103583650
 
 https://blog.csdn.net/Little_fxc/article/details/103583650
+
+
+
+
+
+
+
+https://www.bilibili.com/video/BV1YV411r762
+
+https://gitee.com/zhangnan716/document-blibli/tree/master
+
+
+
+
+
+https://www.bilibili.com/video/BV1KE411K7hz/?spm_id_from=333.788.videocard.13
+
+
+
+https://www.bilibili.com/video/BV17z4y1X7is/?spm_id_from=333.788.videocard.0
+
+https://www.bilibili.com/video/BV1GT4y1J75o/?spm_id_from=333.788.videocard.4
+
+# SpringBoot Spring Security JWT redis Swagger 整合 后台权限管理系统
+
+https://www.bilibili.com/video/BV1Ug4y1q77R/?spm_id_from=333.788.recommend_more_video.0
+
+
+
+# 分布式亿级高并发电商项目(14天)
+
+https://www.bilibili.com/video/BV1EW411r7tY/?spm_id_from=333.788.videocard.7
+
+
+
+
+
+
+
+# Spring Boot 实战】论坛项目【第一季】
+
+https://www.bilibili.com/video/BV1r4411r7au/?spm_id_from=333.788.videocard.14
+
+
+
+
+
+# SpringBoot+Mybatis+netty 打造高性能前后端分离的聊天应用混合式APP
+
+https://www.bilibili.com/video/BV18g4y1z7rL/?spm_id_from=333.788.videocard.16
+
+
+
+# Java全栈谷粒学院在线教育项目Vue+SpringCloud+SpringBoot【附课件+源代码】
+
+https://www.bilibili.com/video/BV1ca4y1e7bQ/?spm_id_from=333.788.videocard.18
+
+
+
+
+
+# Springboot教程-springboot微服务分布式架构项目开发实战-Springboot框架开发教程全套完整版从入门到精通
+
+https://www.bilibili.com/video/BV1m7411d7Um/?spm_id_from=333.788.videocard.11
+
+
+
+
+
+https://www.bilibili.com/video/BV1yC4y1a7i5?p=1
+
+
+
+# 2020核心 SpringCloud_最新教程_spring cloud_springcloud核心篇
+
+https://www.bilibili.com/video/BV18741157DF
+
+
+
+
+
+# 通俗易懂的Vue +Elment-UI后台管理系统 xiaod课堂
+
+https://www.bilibili.com/video/BV1Si4y1M7iQ
+
+# 【2020】VUE+Element UI+Vue Element Admin+SSM+微信支付实现前后端完整电商闭环
+
+https://www.bilibili.com/video/BV1YE411A746/?spm_id_from=333.788.recommend_more_video.0
+
+
+
+
+
+
+
+
+
+https://www.cnblogs.com/skyme/p/8976866.html
+
+
+
+https://www.bilibili.com/video/BV1664y1F7c1?p=3
+
+
+
+
+
+https://github.com/xunyegege/Backend_development
